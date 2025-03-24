@@ -5,7 +5,7 @@ import { RouterProvider } from 'react-router-dom';
 import { ExpenseProvider } from './Context/ExpenseContext';
 import { I18nextProvider } from 'react-i18next';
 import i18n from './Languages/i18n';
-import router from './Routes';
+import router from './routes';
 
 function App() {
   return (
