@@ -17,6 +17,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    background: rgba(255, 255, 255, 0.1); /* Subtle overlay */
     padding: 20px;
 
     canvas {

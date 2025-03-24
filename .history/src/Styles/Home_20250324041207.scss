@@ -2,7 +2,11 @@
 
 .home-container {
   height: 100%; /* Full viewport height */
-  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+  background: linear-gradient(
+    135deg,
+    #2c3e50 0%,
+    #4ca1af 100%
+  ); /* Financial-themed gradient */
   padding: 20px; /* Minimal padding */
   box-sizing: border-box;
   overflow-y: auto; /* Scroll if content overflows */
@@ -17,6 +21,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    background: rgba(255, 255, 255, 0.1); /* Subtle overlay */
+    border-radius: 15px;
     padding: 20px;
 
     canvas {
