@@ -1,0 +1,124 @@
+@import "../assets/Fonts/fonts.scss";
+
+.add-expense-container {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); /* Full-screen gradient */
+    padding: 20px; /* Minimal padding for breathing room */
+    box-sizing: border-box;
+    overflow-y: auto; /* Scroll if content overflows */
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    font-family: $font-family-regular, sans-serif;
+    height: 100%;
+    width: 100%;
+  
+    .add-expense-form {
+      width: 100%; /* Full width */
+      height: 100%; /* Full height */
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+      background: transparent; /* No boxed background */
+      padding: 0; /* No extra padding */
+  
+      .form-group {
+        display: flex;
+        flex-direction: column;
+        width: 100%; /* Full width */
+  
+        label {
+          font-size: 1.2rem;
+          color: #34495e;
+          font-weight: 600;
+          margin-bottom: 8px;
+          text-transform: uppercase;
+        }
+  
+        select,
+        input,
+        textarea {
+          padding: 12px 15px;
+          border: 2px solid #ddd;
+          border-radius: 8px;
+          font-size: 1rem;
+          color: #2c3e50;
+          background: #fff;
+          width: 100%; /* Full width */
+          box-sizing: border-box;
+          transition: all 0.3s ease;
+  
+          &:focus {
+            outline: none;
+            border-color: #3498db;
+            box-shadow: 0 0 10px rgba(52, 152, 219, 0.2);
+          }
+  
+          &::placeholder {
+            color: #95a5a6;
+          }
+        }
+  
+        textarea {
+          resize: vertical;
+          min-height: 120px;
+          flex-grow: 1; /* Expand to fill available space */
+        }
+      }
+  
+      .submit-btn {
+        padding: 15px;
+        background: linear-gradient(45deg, #3498db, #2980b9);
+        border: none;
+        border-radius: 8px;
+        color: white;
+        font-size: 1.2rem;
+        font-weight: 600;
+        cursor: pointer;
+        text-transform: uppercase;
+        transition: all 0.3s ease;
+  
+        &:hover {
+          background: linear-gradient(45deg, #2980b9, #3498db);
+          box-shadow: 0 8px 20px rgba(52, 152, 219, 0.5);
+          transform: translateY(-2px);
+        }
+      }
+    }
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .add-expense-container {
+      width: 100vw; /* Full width on smaller screens */
+      margin-left: 0; /* No sidebar offset */
+      padding: 15px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .add-expense-container {
+      padding: 10px;
+  
+      .add-expense-form {
+        gap: 15px;
+  
+        .form-group {
+          label {
+            font-size: 1rem;
+          }
+  
+          select,
+          input,
+          textarea {
+            padding: 10px;
+            font-size: 0.9rem;
+          }
+        }
+  
+        .submit-btn {
+          padding: 12px;
+          font-size: 1rem;
+        }
+      }
+    }
+  }

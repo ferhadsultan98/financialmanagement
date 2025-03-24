@@ -1,0 +1,41 @@
+// fonts.scss
+$font-family-light: 'Quicksand-Light';
+$font-family-regular: 'Quicksand-Regular';
+$font-family-medium: 'Quicksand-Medium';
+$font-family-semibold: 'Quicksand-SemiBold';
+$font-family-bold: 'Quicksand-Bold';
+
+@font-face {
+  font-family: $font-family-light;
+  src: url('./Quicksand-Light.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: $font-family-regular;
+  src: url('../assets/fonts/Quicksand-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: $font-family-medium;
+  src: url('../assets/fonts/Quicksand-Medium.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: $font-family-semibold;
+  src: url('../assets/fonts/Quicksand-SemiBold.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: $font-family-bold;
+  src: url('../assets/fonts/Quicksand-Bold.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}

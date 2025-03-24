@@ -1,0 +1,117 @@
+// src/components/Login/Login.scss
+.login-container {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  
+    .login-box {
+      background: white;
+      border-radius: 15px;
+      padding: 40px;
+      width: 100%;
+      max-width: 400px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      text-align: center;
+  
+      h2 {
+        color: #2c3e50;
+        font-size: 2rem;
+        margin-bottom: 10px;
+        font-weight: 700;
+      }
+  
+      p {
+        color: #7f8c8d;
+        font-size: 1rem;
+        margin-bottom: 30px;
+      }
+  
+      .error-message {
+        background: #e74c3c;
+        color: white;
+        padding: 10px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+        font-size: 0.9rem;
+      }
+  
+      .input-group {
+        margin-bottom: 20px;
+  
+        input {
+          width: 100%;
+          padding: 12px 15px;
+          border: 1px solid #ddd;
+          border-radius: 8px;
+          font-size: 1rem;
+          color: #2c3e50;
+          transition: all 0.3s ease;
+  
+          &:focus {
+            outline: none;
+            border-color: #3498db;
+            box-shadow: 0 0 8px rgba(52, 152, 219, 0.3);
+          }
+  
+          &::placeholder {
+            color: #95a5a6;
+          }
+        }
+      }
+  
+      button {
+        width: 100%;
+        padding: 12px;
+        background: linear-gradient(45deg, #3498db, #2980b9);
+        border: none;
+        border-radius: 8px;
+        color: white;
+        font-size: 1.1rem;
+        font-weight: 600;
+        cursor: pointer;
+        box-shadow: 0 4px 15px rgba(52, 152, 219, 0.2);
+        transition: all 0.3s ease;
+  
+        &:hover {
+          background: linear-gradient(45deg, #2980b9, #3498db);
+          box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
+        }
+      }
+  
+      .login-info {
+        margin-top: 20px;
+        color: #7f8c8d;
+        font-size: 0.9rem;
+  
+        p {
+          margin: 5px 0;
+        }
+  
+        strong {
+          color: #2c3e50;
+        }
+      }
+    }
+  
+    @media (max-width: 480px) {
+      .login-box {
+        padding: 30px 20px;
+        max-width: 100%;
+  
+        h2 {
+          font-size: 1.5rem;
+        }
+  
+        p {
+          font-size: 0.9rem;
+        }
+  
+        button {
+          font-size: 1rem;
+        }
+      }
+    }
+  }

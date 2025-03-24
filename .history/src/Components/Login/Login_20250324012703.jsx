@@ -1,0 +1,207 @@
+// src/components/Login/Login.jsx
+import React, { useState } from "react";
+import "../../Styles/Login.scss";
+import { useNavigate } from "react-router-dom";
+import { DotLottieReact } from "@lottiefiles/dotlottie-react";
+
+const Login = () => {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const [keepLoggedIn, setKeepLoggedIn] = useState(false);
+  const [showResetForm, setShowResetForm] = useState(false); // Toggle reset form visibility
+  const [currentPassword, setCurrentPassword] = useState("");
+  const [newPassword, setNewPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [resetMessage, setResetMessage] = useState("");
+  const navigate = useNavigate();
+
+  // Hardcoded credentials
+  const validUsername = "admin";
+  let validPassword = "admin"; // Mutable for demo purposes
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+    if (username === validUsername && password === validPassword) {
+      if (keepLoggedIn) {
+        localStorage.setItem("isLoggedIn", "true");
+      }
+      navigate("/");
+    } else {
+      setError("İstifadəçi adı və ya şifrə yanlışdır!");
+    }
+  };
+
+  const handleResetPassword = (e) => {
+    e.preventDefault();
+    if (currentPassword !== validPassword) {
+      setResetMessage("Cari şifrə yanlışdır!");
+      setError("");
+    } else if (newPassword !== confirmPassword) {
+      setResetMessage("Yeni şifrə ilə təsdiq uyğun gəlmir!");
+      setError("");
+    } else if (newPassword === "") {
+      setResetMessage("Yeni şifrə boş ola bilməz!");
+      setError("");
+    } else {
+      validPassword = newPassword;
+      setResetMessage("Şifrə uğurla dəyişdirildi!");
+      setError("");
+      setCurrentPassword("");
+      setNewPassword("");
+      setConfirmPassword("");
+      setShowResetForm(false);
+    }
+  };
+
+  return (
+    <div className="login-container">
+      <div className="login-wrapper">
+        <div className="login-left">
+          <h1>Maliyyə İdarəetmə Sistemi</h1>
+<div className="dotteieandList">
+  
+</div>
+          <DotLottieReact
+            src="https://lottie.host/e98dbd0d-f9cf-4093-b4e0-0aca63e18b7b/rintOi4qpM.lottie"
+            loop
+            autoplay
+            className="dottieContainer"
+          />
+          <ul>
+            <li>Real vaxt rejimində balans izləmə</li>
+            <li>Xərc və gəlir qeydləri</li>
+            <li>Şəxsi profil idarəetmə</li>
+          </ul>
+          <p>
+            Büdcənizi idarə edin, xərclərinizi izləyin və maliyyə hədəflərinizə
+            çatmaq üçün ağıllı qərarlar qəbul edin.
+          </p>
+
+          <div className="login-left-footer">
+            <p>© 2025 Maliyyə İdarəetmə</p>
+          </div>
+        </div>
+
+        {/* Right Section - Login Form */}
+        <div className="login-right">
+          <div className="login-box">
+            <h2>Daxil Olun</h2>
+            <p>Sisteminizə giriş üçün məlumatlarınızı daxil edin</p>
+
+            {error && <div className="error-message">{error}</div>}
+
+            {resetMessage && (
+              <div
+                className={
+                  resetMessage.includes("uğurla")
+                    ? "success-message"
+                    : "error-message"
+                }
+              >
+                {resetMessage}
+              </div>
+            )}
+
+            <form onSubmit={handleLogin}>
+              <div className="input-group">
+                <input
+                  type="text"
+                  placeholder="İstifadəçi adı"
+                  value={username}
+                  onChange={(e) => setUsername(e.target.value)}
+                  required
+                />
+              </div>
+
+              <div className="input-group">
+                <input
+                  type="password"
+                  placeholder="Şifrə"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
+                />
+              </div>
+
+              {showResetForm && (
+                <div className="reset-password-form">
+                  <div className="input-group">
+                    <input
+                      type="password"
+                      placeholder="Cari şifrə"
+                      value={currentPassword}
+                      onChange={(e) => setCurrentPassword(e.target.value)}
+                      required
+                    />
+                  </div>
+                  <div className="input-group">
+                    <input
+                      type="password"
+                      placeholder="Yeni şifrə"
+                      value={newPassword}
+                      onChange={(e) => setNewPassword(e.target.value)}
+                      required
+                    />
+                  </div>
+                  <div className="input-group">
+                    <input
+                      type="password"
+                      placeholder="Yeni şifrəni təsdiqlə"
+                      value={confirmPassword}
+                      onChange={(e) => setConfirmPassword(e.target.value)}
+                      required
+                    />
+                  </div>
+                  <button
+                    type="button"
+                    className="reset-btn"
+                    onClick={handleResetPassword}
+                  >
+                    Dəyişdir
+                  </button>
+                </div>
+              )}
+
+              <div className="login-options">
+                <label className="keep-logged-in">
+                  <input
+                    type="checkbox"
+                    checked={keepLoggedIn}
+                    onChange={(e) => setKeepLoggedIn(e.target.checked)}
+                  />
+                  Məni yadda saxla
+                </label>
+                <a
+                  href="#"
+                  className="forgot-password"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setShowResetForm(!showResetForm);
+                    setResetMessage("");
+                  }}
+                >
+                  Şifrəmi unutdum
+                </a>
+              </div>
+
+              <button type="submit">Daxil Ol</button>
+            </form>
+
+            {/* <div className="login-info">
+              <p>Demo giriş:</p>
+              <p>
+                İstifadəçi: <strong>{validUsername}</strong>
+              </p>
+              <p>
+                Şifrə: <strong>{validPassword}</strong>
+              </p>
+            </div> */}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Login;
